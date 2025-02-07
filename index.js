@@ -1,5 +1,3 @@
-
-
 document.addEventListener("DOMContentLoaded", () => {
     const messageInput = document.querySelector(".message-input");
     const chatForm = document.querySelector(".chat-form");
@@ -17,8 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     //API setup
-    const API_KEY = process.env.API_KEY;
     const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+
+
 
     const userData = {
         message: null
@@ -123,8 +122,4 @@ const handleOutgoingMessage = (e) => {
         initialInputHeight ? "15px" : "32px";
         // change ng border radius depende sa height ng input field
   });
-  
-  sendMessageButton.addEventListener("click", () => 
-    handleOutgoingMessage(e))
-
 });

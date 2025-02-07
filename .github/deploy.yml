@@ -1,0 +1,28 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Trigger the action when pushing to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the code from the repository
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Step 2: Replace the API_KEY placeholder in config.js
+      - name: Replace API Key in config.js
+        run: |
+          echo "Replacing API_KEY in config.js"
+          sed -i 's|YOUR_API_KEY_HERE|${{ secrets.API_KEY }}|g' src/config.js  # Replace placeholder in config.js
+
+      # Step 3: Deploy the project to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # Use GitHub token to authenticate
+          publish_dir: ./  # Adjust this if your HTML files are in a specific directory

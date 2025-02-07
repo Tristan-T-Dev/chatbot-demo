@@ -1,12 +1,12 @@
-name: Deploy to GitHub Pages
+name: Chatbot Demo
 
 on:
   push:
     branches:
-      - main  # Trigger the action when pushing to the main branch
+      - main  # or specify your branch name
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -14,15 +14,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Step 2: Replace the API_KEY placeholder in config.js
-      - name: Replace API Key in config.js
-        run: |
-          echo "Replacing API_KEY in config.js"
-          sed -i 's|YOUR_API_KEY_HERE|${{ secrets.API_KEY }}|g' src/config.js  # Replace placeholder in config.js
+      # Step 2: Set up the environment variable for the API key
+      - name: Set up API Key
+        run: echo "API_KEY=${{ secrets.API_KEY }}" >> $GITHUB_ENV
 
-      # Step 3: Deploy the project to GitHub Pages
+      # Step 3: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}  # Use GitHub token to authenticate
-          publish_dir: ./  # Adjust this if your HTML files are in a specific directory
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build  # Adjust this if your HTML files are in a different directory

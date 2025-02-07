@@ -15,7 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     //API setup
+    const API_KEY = process.env.API_KEY;  // Use the environment variable
     const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+
 
 
 

@@ -13,11 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     //API setup
-    const API_KEY = document.querySelector('meta[name="api-key"]').getAttribute('content');
+    const API_KEY = '';
     const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
-
-    console.log(API_KEY);
-    console.log(API_URL);
 
     const userData = {
         message: null

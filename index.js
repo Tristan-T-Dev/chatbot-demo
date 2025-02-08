@@ -2,10 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const messageInput = document.querySelector(".message-input");
     const chatForm = document.querySelector(".chat-form");
     const chatBody = document.querySelector(".chat-body");
-    const sendMessageButton = document.querySelector("#send-message");
     const chatbotToggler = document.querySelector("#chatbot-toggler");
     const closeChatbot = document.querySelector("#close-chatbot");
-    // events
     if (chatbotToggler) {
         chatbotToggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
     }
@@ -15,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     //API setup
-    const API_KEY = process.env.API_KEY;  // Use the environment variable
+    const API_KEY = 'AIzaSyAMzpm1RDTVfsCdrIaKC61Ei2qIq_mbt2A';  // Use the environment variable
     const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
 
 
@@ -90,7 +88,7 @@ const handleOutgoingMessage = (e) => {
 
     // bot response na thinking set with timeout
     setTimeout(() => {
-        const messageContent = `<img src="./asset/202302553.jpg" class="bot-avatar" width="50" height="50" alt="chatbot-picture">
+        const messageContent = `<img src="../asset/202302553.jpg" class="bot-avatar" width="50" height="50" alt="chatbot-picture">
                     <div class="message-text">
                         <div class="thinking-indicator">
                             <div class="dot"></div>

@@ -88,7 +88,7 @@ const handleOutgoingMessage = (e) => {
 
     // bot response na thinking set with timeout
     setTimeout(() => {
-        const messageContent = `<img src="../asset/202302553.jpg" class="bot-avatar" width="50" height="50" alt="chatbot-picture">
+        const messageContent = `<img src="./asset/202302553.jpg" class="bot-avatar" width="50" height="50" alt="chatbot-picture">
                     <div class="message-text">
                         <div class="thinking-indicator">
                             <div class="dot"></div>

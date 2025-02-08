@@ -38,6 +38,16 @@ jobs:
         with:
           # Upload entire repository
           path: '.'
+      - name: Inject API Key into HTML
+        env:
+          API_KEY: ${{ secrets.SECRET_KEY }}
+        run: |
+          sed -i 's|<head>|<head><meta name="api-key" content="'$API_KEY'">|' ./index.html
+
+      - name: Deploy
+        run: |
+          echo "Deploying with API Key"
+          # Insert your deployment script here
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

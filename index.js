@@ -13,8 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     //API setup
-    const ENCRYPTED_API_KEY = '';  // This should be replaced by the encrypted key injected by the workflow
-    const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${decryptApiKey(ENCRYPTED_API_KEY)}`;
+    const API_KEY = '';  // This should be replaced by the encrypted key injected by the workflow
+    const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
 
     function decryptApiKey(encryptedKey) {
         const decryptedKey = CryptoJS.AES.decrypt(encryptedKey, 'yourpassword').toString(CryptoJS.enc.Utf8);

@@ -29,7 +29,7 @@ jobs:
           API_KEY: ${{ secrets.SECRET_KEY }}
         run: |
           ENCRYPTED_KEY=$(echo -n $API_KEY | openssl enc -aes-256-cbc -a -salt -pbkdf2 -pass pass:yourpassword)
-          sed -i 's|const ENCRYPTED_API_KEY = .*;|const ENCRYPTED_API_KEY = "'$ENCRYPTED_KEY'";|' ./index.js
+          sed -i "s|const ENCRYPTED_API_KEY = .*;|const ENCRYPTED_API_KEY = '${ENCRYPTED_KEY}';|" ./index.js
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
